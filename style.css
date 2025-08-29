@@ -144,8 +144,6 @@ body.no-scroll {
 }
 
 .videobg {
-    position: static;
-    top: 0;
     width: 450px;
     object-fit: contain;
     z-index: -1;
@@ -179,7 +177,7 @@ button {
     border: none;
     background-color: #2e93e6;
     color: white;
-    padding: 12px;
+    padding: 12px 15px;
     border-radius: 30px;
     transition: .3s ease;
     font-size: 13px;
@@ -192,7 +190,6 @@ button:hover {
 .alt-btn {
     background-color: rgba(255, 255, 255, 0.603);
     color: rgb(20, 20, 20);
-    font-weight: bolder;
 }
 
 .alt-btn:hover {
@@ -244,13 +241,6 @@ button:hover {
     transform: scale(1.03);
     color: #236daa;
 }
-
-
-
-
-
-
-
 
 .products {
     z-index: 1;
@@ -348,7 +338,6 @@ button:hover {
         transform: translateX(0);
     }
 }
-
 
 .contact {
     display: flex;
@@ -494,6 +483,56 @@ footer {
 
     header {
         padding: 10px 20px;
+        height: 70px;
     }
 
 }
+
+@media (max-width:420px){
+    /* celular:
+
+
+diminuir height
+**ver se tem como deixar vídei inclicável.
+*/
+.main {
+    min-height: 70svh;
+    font-size: 19px;
+    padding: 20px 0;  
+    margin-top: 70px;
+}
+
+.videobg {
+    width: 300px;
+    margin-bottom: 0;
+}
+
+.main>h1 {
+    max-width: 85vw; 
+}
+
+
+
+
+
+}
+
+
+
+
+
+/* 
+
+GERAL
+**corrigir viewpoert no html para ficar bem responsivo iOS
+**corrigir bold btn claro
+
+
+>>>>>design imagens products >
+otimizar imagens
+organizar pastas
+postar.
+
+posteriormente criar pág produtos e serviços (como tabela de serviço estilo footer da apple com acordeon)
+
+*/
