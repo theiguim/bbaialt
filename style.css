@@ -148,6 +148,10 @@ body.no-scroll {
     object-fit: contain;
     z-index: -1;
     margin-bottom: -20px;
+
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-drag: none;
 }
 
 .gradientFont {
@@ -166,6 +170,16 @@ body.no-scroll {
     margin-bottom: 20px;
     transition: opacity 0.5s ease;
 }
+
+#headline {
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  opacity: 1;
+}
+#headline.fade-out {
+  opacity: 0;
+  transform: translateY(10px); /* opcional: dá sensação de movimento */
+}
+
 
 .container {
     width: 88vw;
@@ -488,33 +502,33 @@ footer {
 
 }
 
-@media (max-width:420px){
+@media (max-width:420px) {
+
     /* celular:
 
-
-diminuir height
 **ver se tem como deixar vídei inclicável.
 */
-.main {
-    min-height: 70svh;
-    font-size: 19px;
-    padding: 20px 0;  
-    margin-top: 70px;
-}
+    .main {
+        min-height: 70svh;
+        font-size: 19px;
+        padding: 20px 0;
+        margin-top: 70px;
+    }
 
-.videobg {
-    width: 300px;
-    margin-bottom: 0;
-}
+    .videobg {
+        width: 300px;
+        margin-bottom: 0;
+    }
 
-.main>h1 {
-    max-width: 85vw; 
-}
+    .main>h1 {
+        max-width: 85vw;
+    }
 
-
-
-
-
+    .product-content {
+        max-width: 80vw !important;
+        height: 55vh;
+        max-height: 600px;
+    }
 }
 
 

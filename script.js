@@ -20,6 +20,34 @@ document.addEventListener('DOMContentLoaded', () => {
         let startY = 0;
 
         window.scrollTo(0, 0);
+
+        // Função genérica para trocar o texto suavemente
+        function switchText(newText, switched) {
+            animating = true;
+            headline.classList.add("fade-out");
+
+            // Aguarda o fim da transição de fade-out
+            headline.addEventListener("transitionend", function handler() {
+                headline.removeEventListener("transitionend", handler);
+
+                // Troca o texto e remove a classe para fazer o fade-in
+                headline.textContent = newText;
+                headline.classList.remove("fade-out");
+
+                textSwitched = switched;
+                animating = false;
+            });
+        }
+
+        function animateSwitchText() {
+            switchText("Transformamos ideias em soluções digitais inteligentes.", true);
+        }
+
+        function animateRevertText() {
+            switchText("Inove. Floresça.", false);
+        }
+
+        // --- Scroll desktop ---
         window.addEventListener("wheel", (e) => {
             if (animating) return;
             if (!textSwitched && e.deltaY > 0 && window.scrollY < 10) {
@@ -31,6 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }, { passive: false });
 
+        // --- Scroll mobile (toque) ---
         window.addEventListener("touchstart", (e) => {
             startY = e.touches[0].clientY;
         }, { passive: false });
@@ -39,39 +68,19 @@ document.addEventListener('DOMContentLoaded', () => {
             if (animating) return;
             const currentY = e.touches[0].clientY;
             const deltaY = startY - currentY;
+
             if (!textSwitched && deltaY > 20 && window.scrollY < 10) {
                 e.preventDefault();
                 animateSwitchText();
+                startY = currentY; // 🔑 atualiza para evitar bloqueio no "press drag"
             } else if (textSwitched && deltaY < -20 && window.scrollY === 0) {
                 e.preventDefault();
                 animateRevertText();
+                startY = currentY; // 🔑 idem aqui
             }
         }, { passive: false });
-
-        function animateSwitchText() {
-            animating = true;
-            headline.style.opacity = 0;
-            setTimeout(() => {
-                headline.textContent = "Transformamos ideias em soluções digitais inteligentes.";
-                void headline.offsetWidth;
-                headline.style.opacity = 1;
-                textSwitched = true;
-                animating = false;
-            }, 300);
-        }
-
-        function animateRevertText() {
-            animating = true;
-            headline.style.opacity = 0;
-            setTimeout(() => {
-                headline.textContent = "Inove. Floresça.";
-                void headline.offsetWidth;
-                headline.style.opacity = 1;
-                textSwitched = false;
-                animating = false;
-            }, 300);
-        }
     }
+
 
     const menu = document.getElementById('mobileMenu');
     const links = menu.querySelectorAll('a');
