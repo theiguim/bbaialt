@@ -57,14 +57,15 @@ a {
 
 a {
     text-decoration: none;
-    color: rgb(49, 49, 49);
+    color: rgb(112, 112, 112);
     transition: .3s ease;
 }
 
 a:hover {
-    color: rgb(15, 15, 15);
-    text-decoration: underline;
+    color: rgb(77, 77, 77);
 }
+
+
 
 header {
     position: fixed;
@@ -209,6 +210,7 @@ button:hover {
     justify-content: center;
     gap: 100px;
     margin: 100px 0;
+    color: rgb(56, 56, 56);
 }
 
 .service-content {
@@ -288,62 +290,86 @@ button:hover {
     font-size: 18px;
 }
 
-.partners { 
-  text-align: center;
-  color: rgba(43, 43, 43, 0.733);
-  margin: 120px 0 0 0;
+.partners {
+    text-align: center;
+    margin: 120px 0 0 0;
 }
 
-.partners>h1{
+.partners>h1 {
+    color: rgb(61, 61, 61);
     margin-bottom: 50px;
+    font-weight: bolder;
+    font-size: 30px;
 }
 
 .partners-wrapper {
-  position: relative;
-  overflow: hidden;
-  width: 100%;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
 }
 
 .partners-list {
-  display: flex;
-  gap: 40px;
-  width: max-content;
+    display: flex;
+    gap: 40px;
+    width: max-content;
 }
 
 .partners-list img {
-  width: 200px;
-  flex-shrink: 0;
-  filter: grayscale(30%);
-  transition: filter 0.3s;
+    width: 200px;
+    flex-shrink: 0;
+    filter: grayscale(30%);
+    transition: filter 0.3s;
 }
 
 .partners-list.left {
-  animation: marquee-left 60s linear infinite;
+    animation: marquee-left 60s linear infinite;
 }
 
 .partners-list.right {
-  animation: marquee-right 60s linear infinite;
+    animation: marquee-right 60s linear infinite;
 }
 
 @keyframes marquee-left {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
 }
 
 @keyframes marquee-right {
-  from { transform: translateX(-50%); }
-  to   { transform: translateX(0); }
+    from {
+        transform: translateX(-50%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
 }
+
 
 .contact {
     display: flex;
-    align-items: center;
+    align-items: start;
     justify-content: space-evenly;
     padding: 10vh 0;
     color: rgb(49, 49, 49);
-
     margin-top: 100px;
     background-color: #e6e6e6;
+}
+
+
+h3 {
+    color: #3d3d3d;
+    font-size: 17px;
+    margin-bottom: 5px;
+}
+
+.contact p {
+    color: rgb(112, 112, 112);
+    font-size: 15px;
 }
 
 .contact img {
@@ -360,6 +386,10 @@ button:hover {
     flex-direction: column;
 }
 
+.contact-links>a>img {
+    margin-left: -5px;
+}
+
 .socials {
     margin: 10px 0;
 }
@@ -367,8 +397,12 @@ button:hover {
 .socials img {
     width: 30px;
     border-radius: 50%;
-    border: 1px solid rgba(0, 0, 0, 0.219);
+    border: 1px solid rgba(0, 0, 0, 0.11);
     cursor: pointer;
+}
+
+.socials img:hover{
+    background-color: rgba(66, 66, 66, 0.089);
 }
 
 footer {
